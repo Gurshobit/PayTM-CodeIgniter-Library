@@ -12,7 +12,7 @@ Please Follow the steps below to Use this Library in Your Project:
 
 **Step 2:** Copy Files to their Respective Folders
 
-        copy paytm_config to application/config folder
+        copy paytm_config.php to application/config folder
         
         copy paytm.php to application/libraries folder
 
@@ -72,7 +72,7 @@ Loading Library Manual (In Particular Controller Example: Orders) or Automatric 
                     
 **Inportant Note:**
 
-        PAYTM_MERCHANT_KEY, PAYTM_MERCHANT_MID, and PAYTM_MERCHANT_WEBSITE
+        PAYTM_MERCHANT_KEY, PAYTM_MERCHANT_MID, INDUSTRY_TYPE_ID, and PAYTM_MERCHANT_WEBSITE
         
 _Above are constants and donot try change them. Those are set using paytm_config in library constructor._
 
