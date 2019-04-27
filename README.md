@@ -51,7 +51,7 @@ Loading Library Manual (In Particular Controller Example: Orders) or Automatric 
           $paramList["MID"] = PAYTM_MERCHANT_MID;
           $paramList["ORDER_ID"] = 'unique_order_id_1733621726'; //unique id for order
           $paramList["CUST_ID"] = 'your_user_id_126216783812'; //unique_id for user
-          $paramList["INDUSTRY_TYPE_ID"] = 'Retail'; // for Testing
+          $paramList["INDUSTRY_TYPE_ID"] = INDUSTRY_TYPE_ID; // for Testing
           $paramList["CHANNEL_ID"] = 'WEB';
           $paramList["TXN_AMOUNT"] = 50;
           $paramList["WEBSITE"] = PAYTM_MERCHANT_WEBSITE;
