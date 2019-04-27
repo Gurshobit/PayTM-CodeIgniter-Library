@@ -8,9 +8,11 @@
  * @paytm_mid string (Alpha Numeric)
  * @paytm_env Either "TEST" or "PROD"
  * @paytm_website Either "WEBSTAGING" or "Website Name"
+ * @paytm_industry_id "Retail" For testing. For Production Check Paytm Dashboard
  * Website Name is Provided by paytm
  * */
 $config['paytm_key'] = '';
 $config['paytm_mid'] = '';
 $config['paytm_env'] = 'TEST';
 $config['paytm_website'] = 'WEBSTAGING';
+$config['paytm_industry_id'] = 'Retail';
