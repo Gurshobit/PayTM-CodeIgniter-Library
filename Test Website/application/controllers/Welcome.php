@@ -25,14 +25,13 @@ class Welcome extends CI_Controller {
         $checkSum = "";
         $paramList = array();
 
-        $INDUSTRY_TYPE_ID = 'Retail';
         $CHANNEL_ID = 'WEB';
 
         // Create an array having all required parameters for creating checksum.
         $paramList["MID"] = PAYTM_MERCHANT_MID;
         $paramList["ORDER_ID"] = 'unique_order_id_1733621726';
         $paramList["CUST_ID"] = 'cust123';
-        $paramList["INDUSTRY_TYPE_ID"] = $INDUSTRY_TYPE_ID;
+        $paramList["INDUSTRY_TYPE_ID"] = INDUSTRY_TYPE_ID;
         $paramList["CHANNEL_ID"] = $CHANNEL_ID;
         $paramList["TXN_AMOUNT"] = 50;
         $paramList["WEBSITE"] = PAYTM_MERCHANT_WEBSITE;
