@@ -23,7 +23,8 @@ Please Follow the steps below to Use this Library in Your Project:
         $config['paytm_key'] = 'YOUR_TEST_KEY';
         $config['paytm_mid'] = 'YOUR_TEST_MERCHANT_ID';
         $config['paytm_env'] = 'TEST';
-        $config['paytm_website'] = 'WEBSTAGING'
+        $config['paytm_website'] = 'WEBSTAGING';
+        $config['paytm_industry_id'] = 'Retail';
        
         //Credentials for Production
       
@@ -31,6 +32,7 @@ Please Follow the steps below to Use this Library in Your Project:
         $config['paytm_mid'] = 'YOUR_PRODUCTION_MERCHANT_ID';
         $config['paytm_env'] = 'PROD';
         $config['paytm_website'] = 'YOUR_WEBSITE_NAME';
+        $config['paytm_industry_id'] = 'YOUR_INDUSTRY_ID';
         
 ## USAGE
 Loading Library Manual (In Particular Controller Example: Orders) or Automatric (Globally)
