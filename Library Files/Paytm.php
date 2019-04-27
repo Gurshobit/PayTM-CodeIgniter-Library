@@ -6,24 +6,27 @@ class Paytm{
      * Author: Gurshobit Singh Brar
      * Creation Date: 20-03-2018
      * Last Updated: 27-04-2019
-     * License: Open to Everyone
-     * Created from official Paytm PHP Kit
+     * License: GNU 3.0
+     * Credit: Created from official Paytm PHP Kit
      * */
 
     public function __construct(){
         $this->ci =& get_instance();
+        $this->ci->config->load('paytm_config');
         $paytm_env = $this->ci->config->item('paytm_env');
         $paytm_key = $this->ci->config->item('paytm_key');
         $paytm_mid = $this->ci->config->item('paytm_mid');
         $paytm_website = $this->ci->config->item('paytm_website');
-        $this->config($paytm_env,$paytm_key,$paytm_mid,$paytm_website);
+        $paytm_industry_id = $this->ci->config->item('paytm_industry_id');
+        $this->config($paytm_env,$paytm_key,$paytm_mid,$paytm_website,$paytm_industry_id);
     }
 
-    public function config($env,$key,$mid,$website){
-        defined('PAYTM_ENVIRONMENT') OR define('PAYTM_ENVIRONMENT', $env); // PROD
-        defined('PAYTM_MERCHANT_KEY') OR define('PAYTM_MERCHANT_KEY', $key); //Change this constant's value with Merchant key received from Paytm.
-        defined('PAYTM_MERCHANT_MID') OR define('PAYTM_MERCHANT_MID', $mid); //Change this constant's value with MID (Merchant ID) received from Paytm.
-        defined('PAYTM_MERCHANT_WEBSITE') OR define('PAYTM_MERCHANT_WEBSITE', $website); //Change this constant's value with Website name received from Paytm.
+    public function config($env,$key,$mid,$website,$industry_id){
+        defined('PAYTM_ENVIRONMENT') OR define('PAYTM_ENVIRONMENT', $env);
+        defined('PAYTM_MERCHANT_KEY') OR define('PAYTM_MERCHANT_KEY', $key);
+        defined('PAYTM_MERCHANT_MID') OR define('PAYTM_MERCHANT_MID', $mid);
+        defined('PAYTM_MERCHANT_WEBSITE') OR define('PAYTM_MERCHANT_WEBSITE', $website);
+        defined('INDUSTRY_TYPE_ID') OR define('INDUSTRY_TYPE_ID',$industry_id);
         $PAYTM_STATUS_QUERY_NEW_URL='https://securegw-stage.paytm.in/merchant-status/getTxnStatus';
         $PAYTM_TXN_URL='https://securegw-stage.paytm.in/theia/processTransaction';
         if (PAYTM_ENVIRONMENT == 'PROD') {
@@ -35,6 +38,12 @@ class Paytm{
         defined('PAYTM_STATUS_QUERY_NEW_URL') OR define('PAYTM_STATUS_QUERY_NEW_URL', $PAYTM_STATUS_QUERY_NEW_URL);
         defined('PAYTM_TXN_URL') OR define('PAYTM_TXN_URL', $PAYTM_TXN_URL);
     }
+    
+    /*
+    * Below Code from PayTM PHP Kit
+    * Please Donot Mess with Code Below
+    */
+    
     public function encrypt_e($input, $ky) {
         $key   = html_entity_decode($ky);
         $iv = "@@@@&&&&####$$$$";
