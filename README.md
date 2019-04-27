@@ -1,8 +1,11 @@
 # About Library
-PayTM Payment Gateway Library for CodeIgniter. This Library is Created from Official PayTM PHP Kit.But This Library is not official Library.  
+PayTM Payment Gateway Library for CodeIgniter. 
+
+This Library is Created from Official PayTM PHP Kit.But This Library is not official Library.  
+
 Author: Gurshobit Singh Brar
 
-# INSTALLATION
+## INSTALLATION
 Please Follow the steps below to Use this Library in Your Project:
 
 **Step 1:** Download This Libray ZIP Which Contains Test Codeigniter Site, Config File and Library File
@@ -29,7 +32,7 @@ Please Follow the steps below to Use this Library in Your Project:
         $config['paytm_env'] = 'PROD';
         $config['paytm_website'] = 'YOUR_WEBSITE_NAME';
         
-# USAGE
+## USAGE
 Loading Library Manual (In Particular Controller Example: Orders) or Automatric (Globally)
 
 **Automatic:**
@@ -52,7 +55,8 @@ Loading Library Manual (In Particular Controller Example: Orders) or Automatric 
           $paramList["CHANNEL_ID"] = 'WEB';
           $paramList["TXN_AMOUNT"] = 50;
           $paramList["WEBSITE"] = PAYTM_MERCHANT_WEBSITE;
-          $paramList["CALLBACK_URL"] = base_url('orders/order_response'); //your response url.Please Note base_url() requies url helper 
+          $paramList["CALLBACK_URL"] = base_url('orders/order_response'); 
+          //your response url.Please Note base_url() requies url helper 
           $paramList["MSISDN"] = '7777777777'; //Mobile number of customer
           $paramList["EMAIL"] = 'username@emailprovider.com'; //Email ID of customer
           $paramList["VERIFIED_BY"] = "EMAIL"; //How Your User is Verified "EMAIL" or "MSISDN"
@@ -63,12 +67,15 @@ Loading Library Manual (In Particular Controller Example: Orders) or Automatric 
 
           $paramList = $_POST;
           $paytmChecksum = isset($_POST["CHECKSUMHASH"]) ? $_POST["CHECKSUMHASH"] : "";
-          $isValidChecksum = $this->paytm->verifychecksum_e($paramList, PAYTM_MERCHANT_KEY, $paytmChecksum); //Either TRUE OR FALSE
+          $isValidChecksum = $this->paytm->verifychecksum_e($paramList, PAYTM_MERCHANT_KEY, $paytmChecksum); 
+          //$isValidCheksum Either TRUE OR FALSE
                     
 **Inportant Note:**
 
         PAYTM_MERCHANT_KEY, PAYTM_MERCHANT_MID, and PAYTM_MERCHANT_WEBSITE
         
 _Above are constants and donot try change them. Those are set using paytm_config in library constructor._
+
+## TESTING
 
 Use test site controller and view code to test your installation
