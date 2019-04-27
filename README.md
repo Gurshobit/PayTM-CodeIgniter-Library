@@ -33,7 +33,6 @@ Please Follow the steps below to Use this Library in Your Project:
 Loading Library Manual (In Particular Controller Example: Orders) or Automatric (Globally)
 
 **Automatic:**
-
           Autoload libaray file and config file in autoload.php file
           
           $autoload['libraries'] = array('paytm');
@@ -68,8 +67,8 @@ Loading Library Manual (In Particular Controller Example: Orders) or Automatric 
                     
 **Inportant Note:**
 
-        PAYTM_MERCHANT_KEY, PAYTM_MERCHANT_MID,PAYTM_MERCHANT_WEBSITE
+        PAYTM_MERCHANT_KEY, PAYTM_MERCHANT_MID, and PAYTM_MERCHANT_WEBSITE
         
-_Above are constants and donot try change them. Those are set using paytm_config in library construtor._
+_Above are constants and donot try change them. Those are set using paytm_config in library constructor._
 
 Use test site controller and view code to test your installation
