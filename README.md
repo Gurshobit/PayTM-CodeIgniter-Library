@@ -8,49 +8,44 @@ Please Follow the steps below to Use this Library in Your Project:
 **Step 1:** Download This Libray ZIP Which Contains Test Codeigniter Site, Config File and Library File
 
 **Step 2:** Copy Files to their Respective Folders
+
         copy paytm_config to application/config folder
+        
         copy paytm.php to application/libraries folder
 
 **Step 3:** Add Your Paytm Gateway API Crdentials in paytm_config.php file
-
-        _Credentials for Testing_
         
-        ```PHP
+        //Credentials for Testing
+        
         $config['paytm_key'] = 'YOUR_TEST_KEY';
         $config['paytm_mid'] = 'YOUR_TEST_MERCHANT_ID';
         $config['paytm_env'] = 'TEST';
-        $config['paytm_website'] = 'WEBSTAGING';
-        ```
-        _Credentials for Production_
-        
-        ```PHP
+        $config['paytm_website'] = 'WEBSTAGING'
+       
+        //Credentials for Production
+      
         $config['paytm_key'] = = 'YOUR_PRODUCTION_KEY';
         $config['paytm_mid'] = 'YOUR_PRODUCTION_MERCHANT_ID';
         $config['paytm_env'] = 'PROD';
         $config['paytm_website'] = 'YOUR_WEBSITE_NAME';
-        ```
-
+        
 # USAGE
 Loading Library Manual (In Particular Controller Example: Orders) or Automatric (Globally)
 
 **Automatic:**
 
-          autoload libaray and config file in autoload.php file
+          Autoload libaray file and config file in autoload.php file
           
-          ```PHP
           $autoload['libraries'] = array('paytm');
           $autoload['config'] = array('paytm_config');
-          ```
 
 **Manual:**
-
-        ```PHP
+          Load Library in Your Desired Controller
+          
           $this->load->library('paytm');
-          ```
 
 **_Get Check Sum in Order Process Function in Your Orders Controller_**
 
-        ```PHP
           $paramList["MID"] = PAYTM_MERCHANT_MID;
           $paramList["ORDER_ID"] = 'unique_order_id_1733621726'; //unique id for order
           $paramList["CUST_ID"] = 'your_user_id_126216783812'; //unique_id for user
@@ -64,21 +59,17 @@ Loading Library Manual (In Particular Controller Example: Orders) or Automatric 
           $paramList["VERIFIED_BY"] = "EMAIL"; //How Your User is Verified "EMAIL" or "MSISDN"
           $paramList["IS_USER_VERIFIED"] = "YES"; //IF Your Customer is Verified by you than "Yes" otherwise "No"
           $checkSum = $this->paytm->getChecksumFromArray($paramList,PAYTM_MERCHANT_KEY);
-          ```
           
 **_Verify Check Sum in Your order Response Function in Order Controller_**
 
-          ```PHP
           $paramList = $_POST;
           $paytmChecksum = isset($_POST["CHECKSUMHASH"]) ? $_POST["CHECKSUMHASH"] : "";
           $isValidChecksum = $this->paytm->verifychecksum_e($paramList, PAYTM_MERCHANT_KEY, $paytmChecksum); //Either TRUE OR FALSE
-          ```
-          
+                    
 **Inportant Note:**
 
-        ```PHP
         PAYTM_MERCHANT_KEY, PAYTM_MERCHANT_MID,PAYTM_MERCHANT_WEBSITE
-        ```
+        
 _Above are constants and donot try change them. Those are set using paytm_config in library construtor._
 
 Use test site controller and view code to test your installation
